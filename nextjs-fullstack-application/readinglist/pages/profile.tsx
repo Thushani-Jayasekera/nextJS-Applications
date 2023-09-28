@@ -1,6 +1,6 @@
 import DefaultLayout from "@/layouts/default";
 import { useSession } from "next-auth/react";
-import { title, subtitle } from "@/components/primitives";
+import { title, subtitle } from "@/components/themes";
 import { Avatar, AvatarIcon } from "@nextui-org/react";
 
 export default function ProfilePage() {

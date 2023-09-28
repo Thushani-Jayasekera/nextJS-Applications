@@ -1,4 +1,4 @@
-import { title, subtitle } from "@/components/primitives";
+import { title, subtitle } from "@/components/themes";
 import DefaultLayout from "@/layouts/default";
 import { getSession, signIn, signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -73,7 +73,7 @@ export default function IndexPage() {
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-xl text-center justify-center">
-          <h1 className={title({ color: "cyan" })}>Reading List&nbsp;</h1>
+          <h1 className={title({ color: "title" })}>Reading List&nbsp;</h1>
           <br />
           <h4 className={subtitle({ class: "mt-4" })}>
             Manage your Reading Lists here!
