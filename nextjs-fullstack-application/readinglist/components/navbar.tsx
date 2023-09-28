@@ -23,7 +23,6 @@ import { getSession, signOut, useSession } from "next-auth/react";
 import { FcPlus } from "react-icons/fc";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import getConfig from "next/config";
 
 const readingStatuses = [
   { id: "to_read", name: "to_read" },
@@ -39,28 +38,21 @@ export const Navbar = () => {
   const [readingStatus, setReadingStatus] = useState("");
   const router = useRouter();
 
-  const { publicRuntimeConfig } = getConfig();
   const accessToken = session?.user?.accessToken;
   const onSave = () => {
     async function setBooks() {
       try {
-        const response = await fetch(
-          `${
-            process.env.NEXT_PUBLIC_SERVICE_URL ||
-            publicRuntimeConfig.NEXT_PUBLIC_SERVICE_URL
-          }`,
-          {
-            method: "POST",
-            body: JSON.stringify({
-              title: name,
-              author: author,
-              status: readingStatus,
-            }),
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await fetch(`/api/books`, {
+          method: "POST",
+          body: JSON.stringify({
+            title: name,
+            author: author,
+            status: readingStatus,
+          }),
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         if (response.ok) {
           alert("Book updated successfully!");
           router.push("/");
@@ -143,7 +135,7 @@ export const Navbar = () => {
               classNames={{
                 body: "py-6",
                 backdrop: "bg-[#292f46]/50 backdrop-opacity-40",
-                base: "border-[#292f46] bg-[#19172c] light:bg-[#19172c] text-[#a8b0d3]",
+                base: "border-[#292f46] bg-[#19172c] dark:bg-[#19172c] text-[#a8b0d3]",
                 header: "border-b-[1px] border-[#292f46]",
                 footer: "border-t-[1px] border-[#292f46]",
                 closeButton: "hover:bg-white/5 active:bg-white/10",
