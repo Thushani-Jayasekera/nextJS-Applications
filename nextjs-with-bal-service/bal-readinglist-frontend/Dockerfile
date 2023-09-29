@@ -23,6 +23,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ENV NODE_ENV production
 
 RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 10015
+COPY --from=builder /app/next.config.js ./
 COPY --from=builder --chown=10015:nodejs /app/public ./public
 COPY --from=builder --chown=10015:nodejs /app/package.json ./package.json
 COPY --from=builder --chown=10015:nodejs /app/.next ./.next
