@@ -142,7 +142,7 @@ export default function IndexPage() {
                                       variant="light"
                                       onPress={() => deleteBook(book.id || "")}
                                     >
-                                      <FcDeleteRow size={28} />
+                                      <FcDeleteRow size={28}/>
                                     </Button>
                                   </TableCell>
                                 </TableRow>

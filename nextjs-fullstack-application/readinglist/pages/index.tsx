@@ -100,7 +100,6 @@ export default function IndexPage() {
                   color="secondary"
                   aria-label="Tabs colors"
                   radius="full"
-
                 >
                   <Tab key="reading" title="Reading">
                     <Table aria-label="Example empty table" fullWidth={true}>
@@ -173,6 +172,7 @@ export default function IndexPage() {
                               <TableCell>{book.status}</TableCell>
                               <TableCell>
                                 <Button
+                                  variant="light"
                                   onPress={() => deleteBook(book.id || "")}
                                 >
                                   <FcDeleteRow size={28} />

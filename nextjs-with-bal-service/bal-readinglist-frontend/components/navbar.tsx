@@ -132,7 +132,7 @@ export const Navbar = () => {
             </Button>
             <Button onPress={onOpen} color="secondary" variant="ghost">
               <FcPlus />
-              Add Todo
+              Add Book
             </Button>
 
             <Modal
