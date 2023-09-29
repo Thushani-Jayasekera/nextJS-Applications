@@ -23,21 +23,12 @@ import { FcDeleteRow, FcPlus } from "react-icons/fc";
 
 const { publicRuntimeConfig } = getConfig();
 
-const readingStatuses = [
-  { id: "to_read", name: "to_read" },
-  { id: "reading", name: "reading" },
-  { id: "read", name: "read" },
-];
-
 export default function IndexPage() {
   const { data: session, status } = useSession();
   const [readingList, setReadingList] = useState<Dictionary<Book[]> | null>(
     null
   );
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [name, setName] = useState("");
-  const [author, setAuthor] = useState("");
-  const [readingStatus, setReadingStatus] = useState("");
+
   const router = useRouter();
 
   const accessToken = session?.user?.accessToken;
