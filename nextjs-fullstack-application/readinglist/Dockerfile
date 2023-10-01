@@ -29,8 +29,8 @@ COPY --from=builder --chown=10015:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=10015:nodejs /app/public ./public
 
 USER 10015
-EXPOSE 3000
+EXPOSE 8080
 
-ENV PORT 3000
+ENV PORT 8080
 
 CMD ["node", "server.js"]
